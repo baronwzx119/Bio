@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      设备注册
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-list (click)='checkStore()' >
+    <ion-item-divider color="light">门店信息</ion-item-divider>
+    <ion-item>
+      <h2>所属门店：</h2>
+      <p>{{store}}</p>
+      <ion-note item-end><ion-icon name="arrow-forward"></ion-icon></ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item-divider color="light">设备信息</ion-item-divider>
+    <ion-item>
+      <h2>设备ID：</h2>
+      <p>{{uuid}}</p>
+    </ion-item>
+    <ion-item>
+      <h2>终端品牌：</h2>
+      <p>{{brand}}</p>
+    </ion-item>
+    <ion-item>
+      <h2>终端型号：</h2>
+      <p>{{tvid}}</p>
+    </ion-item>
+
+
+  </ion-list>
+
+<ion-list>
+  <ion-item-divider color="light">安装信息</ion-item-divider>
+  <ion-item>
+    <ion-label fixed>房间号：</ion-label>
+    <ion-input [(ngModel)]='room' placeholder="例：1102" [disabled]="isRegister"></ion-input>
+  </ion-item>
+</ion-list>
+
+<div class='login-button m-s'>
+  <button color='primary' ion-button block large (click)='register()' *ngIf='isRegister == "false"'>注册</button>
+  <button color='primary' ion-button block large (click)='delregister()' *ngIf='isRegister == "true"'>重新绑定</button>
+</div>
+</ion-content>
+
+

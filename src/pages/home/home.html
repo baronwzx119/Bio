@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      设备注册
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <img src="assets/imgs/cnwlogo.png" style="width:100%" />
+  </div>
+  <div class="m-b">
+    <ion-item>
+      <ion-input [(ngModel)]='name' placeholder="请输入登陆码"></ion-input>
+    </ion-item>
+  </div>
+  <div class='login-button m-s'>
+    <button color='primary' ion-button block large (click)='login()' [disabled]="!name">登录</button>
+  </div>
+</ion-content>
+

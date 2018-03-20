@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar >
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">返回</button>
+    </ion-buttons>
+    <ion-title>
+      设置门店
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="search" (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+     <p (click)="setStore(item)"> {{ item.key }}</p>
+    </ion-item>
+    <ion-item *ngIf="search !='' && items.length==0 && loading == false">
+      <p>无门店符合筛选条件</p>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf = "search == '' &&  items.length==0;">
+    <ion-item-divider color="light">历史记录</ion-item-divider>
+    <ion-item *ngFor="let history of historys">
+      <p (click)="sethistory(history)"> {{ history.key }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
